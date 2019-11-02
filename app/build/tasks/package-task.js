@@ -146,6 +146,7 @@ module.exports = grunt => {
             '**/vendor/**',
             'examples/**',
             '**/src/tasks/**',
+            '**/static/all_licenses.html',
             '**/node_modules/spellchecker/**',
             '**/node_modules/windows-shortcuts/**',
           ].join(',') +
@@ -198,6 +199,11 @@ module.exports = grunt => {
        * setup-mac-keychain-task needs to be run first
        */
       osxSign: !!process.env.SIGN_BUILD,
+      osxNotarize: {
+        appleId: process.env.APPLE_ID,
+        appleIdPassword: process.env.APPLE_ID_PASSWORD,
+        ascProvider: process.env.APPLE_ID_ASC_PROVIDER,
+      },
       win32metadata: {
         CompanyName: 'Foundry 376, LLC',
         FileDescription: 'Mailspring',
